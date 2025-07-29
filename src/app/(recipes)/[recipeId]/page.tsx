@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import EditRecipeForm from "@/ui/recipe-form/edit/edit-form";
 
 export const metadata: Metadata = {
   title: "Edit",
@@ -14,5 +15,9 @@ export default async function EditRecipe(props: EditRecipeProps) {
   if (+recipeId > 10) {
     return notFound();
   }
-  return <p>Edit page {recipeId}</p>;
+  return (
+    <p>
+      Edit page {recipeId} <EditRecipeForm />
+    </p>
+  );
 }
