@@ -1,121 +1,90 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
-import { 
-  ArrowRight, 
-  Sparkles, 
-  Users, 
-  BookOpen, 
-  Download 
-} from 'lucide-react'
+// This is our homepage - like App.js in regular React
+// In Next.js, this file automatically becomes your "/" route
 
-export default function Home() {
+// We'll add some interactivity to learn about 'use client'
+'use client' // This tells Next.js this component needs to run on the client (browser)
+
+import { useState } from 'react'
+import Link from 'next/link' // Next.js navigation component
+
+export default function HomePage() {
+  // This is just like React! useState works the same way
+  const [recipesCount, setRecipesCount] = useState(0)
+  
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-orange-50 to-red-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-              Cook, Share, and
-              <span className="text-orange-500"> Discover</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Create and share amazing recipes with our community. Extract recipes from your favorite 
-              blogs and YouTube videos using AI, then make them your own.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/register">
-                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8">
-                  Get Started Free
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/recipes">
-                <Button variant="outline" size="lg" className="px-8">
-                  Explore Recipes
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Everything you need to manage recipes
-            </h2>
-            <p className="text-xl text-gray-600">
-              From creation to sharing, we&apos;ve got you covered
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* AI Extraction */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                <Sparkles className="h-6 w-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                AI-Powered Extraction
-              </h3>
-              <p className="text-gray-600">
-                Extract recipes from any blog or YouTube video using our advanced AI. 
-                Just paste the URL and let us do the work.
-              </p>
-            </div>
-
-            {/* Community */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
-                <Users className="h-6 w-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Share & Discover
-              </h3>
-              <p className="text-gray-600">
-                Share your creations with the community and discover amazing recipes 
-                from fellow food enthusiasts.
-              </p>
-            </div>
-
-            {/* Organization */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
-                <BookOpen className="h-6 w-6 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                Organize Everything
-              </h3>
-              <p className="text-gray-600">
-                Keep your recipes organized with categories, tags, and personal collections. 
-                Never lose a great recipe again.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-orange-500 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to start your culinary journey?
-          </h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of home cooks who are already using Parikar to organize 
-            and share their favorite recipes.
-          </p>
-          <Link href="/register">
-            <Button size="lg" variant="secondary" className="bg-white text-orange-500 hover:bg-gray-50 px-8">
-              Create Your Free Account
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-      </section>
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>🍳 Welcome to Parikar!</h1>
+      <p>Your Recipe Sharing App</p>
+      
+      {/* Navigation */}
+      <div style={{ marginTop: '20px' }}>
+        <Link 
+          href="/recipes"
+          style={{
+            padding: '12px 24px',
+            backgroundColor: '#ff6b35',
+            color: 'white',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            display: 'inline-block'
+          }}
+        >
+          View All Recipes →
+        </Link>
+      </div>
+      
+      <div style={{ marginTop: '30px' }}>
+        <h2>What we'll learn to build:</h2>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li>✅ Create and share recipes</li>
+          <li>✅ Extract recipes from blogs using AI</li>
+          <li>✅ Save your favorite recipes</li>
+          <li>✅ User authentication</li>
+        </ul>
+      </div>
+      
+      {/* Let's add some interactivity! */}
+      <div style={{ 
+        marginTop: '30px', 
+        padding: '20px', 
+        backgroundColor: '#f0f0f0',
+        borderRadius: '8px'
+      }}>
+        <p><strong>Interactive Demo:</strong></p>
+        <p>Recipes in your collection: {recipesCount}</p>
+        <button 
+          onClick={() => setRecipesCount(recipesCount + 1)}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#ff6b35',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginRight: '10px'
+          }}
+        >
+          Add Recipe
+        </button>
+        <button 
+          onClick={() => setRecipesCount(0)}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: '#666',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer'
+          }}
+        >
+          Reset
+        </button>
+      </div>
+      
+      <div style={{ marginTop: '20px', padding: '20px', backgroundColor: '#e8f5e8' }}>
+        <p><strong>Step 1 Complete!</strong> You're seeing your first Next.js page!</p>
+        <p><em>Notice how we added 'use client' to make it interactive like React!</em></p>
+      </div>
     </div>
   )
 }
