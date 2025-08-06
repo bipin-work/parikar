@@ -1,7 +1,6 @@
 import React from "react";
 
-interface RecipeFormProps {}
-const RecipeForm: React.FC<RecipeFormProps> = () => {
+const RecipeForm: React.FC = () => {
   return <>form</>;
 };
 export default RecipeForm;
