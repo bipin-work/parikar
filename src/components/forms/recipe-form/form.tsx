@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
-import Card from "@/components/ui/Card";
+import { Card } from "@/components/ui/Card";
 import Link from "next/link";
 
 interface Ingredient {
@@ -104,7 +104,9 @@ export function RecipeForm({
     <form action={handleSubmit} className="max-w-4xl mx-auto space-y-8">
       {/* Basic Information */}
       <Card className="p-6">
-        <h2 className="text-xl font-semibold mb-4">Basic Information</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">
+          Basic Information
+        </h2>
 
         <div className="space-y-4">
           <div>
@@ -250,12 +252,13 @@ export function RecipeForm({
       {/* Ingredients */}
       <Card className="p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold">Ingredients</h2>
+          <h2 className="text-xl font-semibold text-gray-700">Ingredients</h2>
           <Button
             type="button"
             onClick={addIngredient}
-            // variant="outline"
-            // size="sm"
+            variant="outline"
+            size="sm"
+            className="text-gray-600"
           >
             Add Ingredient
           </Button>
@@ -337,8 +340,8 @@ export function RecipeForm({
                   <Button
                     type="button"
                     onClick={() => removeIngredient(index)}
-                    // variant="outline"
-                    // size="sm"
+                    variant="outline"
+                    size="sm"
                     className="text-red-600 border-red-300 hover:bg-red-50"
                   >
                     ×
@@ -353,12 +356,13 @@ export function RecipeForm({
       {/* Instructions */}
       <Card className="p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold">Instructions</h2>
+          <h2 className="text-xl font-semibold text-gray-700">Instructions</h2>
           <Button
             type="button"
             onClick={addInstruction}
-            // variant="outline"
-            // size="sm"
+            variant="outline"
+            size="sm"
+            className="text-gray-700"
           >
             Add Step
           </Button>
@@ -384,8 +388,8 @@ export function RecipeForm({
                 <Button
                   type="button"
                   onClick={() => removeInstruction(index)}
-                  // variant="outline"
-                  //  size="sm"
+                  variant="outline"
+                  size="sm"
                   className="text-red-600 border-red-300 hover:bg-red-50 self-start mt-1"
                 >
                   ×
@@ -400,15 +404,15 @@ export function RecipeForm({
       <div className="flex gap-4">
         <Button
           type="submit"
+          size="sm"
+          variant="primary"
           disabled={isSubmitting}
           className="flex-1 sm:flex-initial"
         >
           {isSubmitting ? "Saving..." : submitLabel}
         </Button>
 
-        <Button
-          type="button" //</div> variant="outline"
-        >
+        <Button type="button" variant="outline" size="sm">
           <Link href="/">Cancel</Link>
         </Button>
       </div>

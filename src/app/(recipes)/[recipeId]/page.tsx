@@ -22,8 +22,8 @@ export default async function EditRecipe(props: EditRecipeProps) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Edit Recipe</h1>
-        <p className="text-gray-600 mt-2">Update your recipe details</p>
+        <h1 className="text-3xl font-bold text-white-900">Edit Recipe</h1>
+        <p className="text-white-600 mt-2">Update your recipe details</p>
       </div>
 
       <RecipeForm

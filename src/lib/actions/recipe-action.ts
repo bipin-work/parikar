@@ -240,11 +240,10 @@ export async function deleteRecipeAction(recipeId: string) {
     });
 
     // Revalidate cache
-    revalidatePath("/recipes");
-    revalidatePath("/profile");
+    revalidatePath("/");
 
     // Redirect to recipes list
-    redirect("/recipes");
+    redirect("/");
   } catch (error: any) {
     console.error("Delete recipe error:", error);
     return {
