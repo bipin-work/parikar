@@ -8,6 +8,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: React.FC<InputProps> = ({
   label,
+  name,
   required,
   type,
   value,
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
         </label>
       )}
       <input
+        name={name}
         type={type}
         defaultValue={defaultValue}
         value={value}

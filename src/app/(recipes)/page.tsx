@@ -6,6 +6,7 @@ import RecipeList from "@/components/recipe/RecipeList";
 import { auth } from "@/lib/auth";
 import { setEngine } from "crypto";
 import { redirect } from "next/navigation";
+import { SignOut } from "@/components/ui/SignOut";
 
 export const metadata: Metadata = {
   title: "All Recipes",
@@ -14,13 +15,15 @@ export const metadata: Metadata = {
 const AllRecipes: React.FC = async () => {
   const session = await auth();
 
-  if (!session) redirect("/login/sign-in");
+  if (!session) redirect("/sign-in");
   return (
     <div>
-      <p>All recipes</p>
+      <p>Welcome! {session.user?.name || "User"}.All recipes</p>
+
       <Suspense>
         <RecipeList />
       </Suspense>
+      <SignOut />
     </div>
   );
 };

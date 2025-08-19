@@ -2,6 +2,7 @@
 CREATE TABLE "public"."users" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "password" TEXT,
     "name" TEXT,
     "image" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

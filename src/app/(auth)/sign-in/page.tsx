@@ -33,8 +33,11 @@ const Page = async () => {
         className="space-y-4"
         action={async (formData) => {
           "use server";
+
+          console.log("data:::", formData.values);
           await executeAction({
             actionFn: async () => {
+              console.log("form data::", formData.values());
               await signIn("credentials", formData);
             },
           });
