@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { GithubSignIn } from "@/components/forms/GithubSignIn";
 import { auth } from "@/lib/auth";
+import { signUp } from "@/lib/actions/sign-up-action";
 
 const Page = async () => {
   const session = await auth();
@@ -32,10 +33,12 @@ const Page = async () => {
         className="space-y-4"
         action={async (formData) => {
           "use server";
-          //   const res = await signUp(formData);
-          //   if (res.success) {
-          //     redirect("/sign-in");
-          //   }
+          console.log("here");
+          const res = await signUp(formData);
+          console.log("res", res.success);
+          if (res.success) {
+            redirect("/sign-in");
+          }
         }}
       >
         <Input

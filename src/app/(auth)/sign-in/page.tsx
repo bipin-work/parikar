@@ -37,7 +37,7 @@ const Page = async () => {
           console.log("data:::", formData.values);
           await executeAction({
             actionFn: async () => {
-              console.log("form data::", formData.values());
+              console.log("form data::", formData.values);
               await signIn("credentials", formData);
             },
           });
