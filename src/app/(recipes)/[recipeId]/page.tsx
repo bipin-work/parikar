@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Metadata } from "next";
 import { getRecipeById } from "@/lib/queries/recipe";
 import { updateRecipeAction } from "@/lib/actions/recipe-action";

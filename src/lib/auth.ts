@@ -4,9 +4,8 @@ import Github from "next-auth/providers/github";
 import { encode as defaultEncode } from "next-auth/jwt";
 
 import { v4 as uuid } from "uuid";
-import { email, z } from "zod";
+import { z } from "zod";
 import db from "./db";
-import { prisma } from "./prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 
 export const loginSchema = z.object({

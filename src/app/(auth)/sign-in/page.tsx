@@ -8,9 +8,14 @@ import { executeAction } from "@/lib/actions/execute-action";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-const Page = async () => {
+const Page = async ({
+  searchParams,
+}: {
+  searchParams: { message: string; callbackUrl: string };
+}) => {
   const session = await auth();
-  if (session) redirect("/");
+  const callbackUrl = searchParams.callbackUrl || "/";
+  if (session) redirect(callbackUrl);
 
   return (
     <div className="w-full max-w-sm mx-auto space-y-6">

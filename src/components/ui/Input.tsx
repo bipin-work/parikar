@@ -1,4 +1,3 @@
-import { ComponentProps } from "@/type/types";
 import React, { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
